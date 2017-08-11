@@ -1,0 +1,26 @@
+{
+  "name": "instabeard",
+  "private": true,
+  "authors": [
+    "Luis Zepeda <lzmonter@gmail.com>"
+  ],
+  "description": "demo instabeard for Expert web development course",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.2",
+    "polymerfire": "firebase/polymerfire#^2.1.0",
+    "paper-button": "PolymerElements/paper-button#^2.0.0",
+    "iron-icons": "PolymerElements/iron-icons#^2.0.1",
+    "polymer-redux": "^1.0.1"
+  }
+}

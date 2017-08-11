@@ -1,0 +1,108 @@
+<link rel="import" href="bower_components/polymer/polymer-element.html">
+<link rel="import" href="bower_components/polymerfire/firebase-auth.html">
+<link rel="import" href="bower_components/paper-button/paper-button.html">
+<link rel="import" href="redux-mixin/redux-mixin.html">
+
+<dom-module id="instabeard-login">
+    <template>
+        <style>
+            .side-left{
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .side-right{
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            form{
+                border: 1px solid #E6E6E6;
+                padding: 20px;
+                background-color: #FFFFFF;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            form p{
+                font-family: Arial, Helvetica, sans-serif;
+                color: #ACACAC;
+                font-weight: 600;
+            }
+            paper-button{
+               background-color: #F15A5A;
+               color: white;
+               font-family: Arial, Helvetica, sans-serif;
+            }
+        </style>
+        <firebase-auth
+            id="auth"
+            user="{{user}}"
+            status-known="{{statusKnown}}"
+            provider="google">
+        </firebase-auth>
+
+        <div class="side-left">
+            <img src="assets/imgs-app/collage.png" alt="">
+        </div>
+        <div class="side-right">
+            <form>
+                <h1>Instabeard</h1>
+                <p>Regístrate para ver fotos de tus amigos.</p>
+                <paper-button class="indigo" raised on-tap="login">
+                    <iron-icon icon="favorite"></iron-icon>
+                    Iniciar sesion con Google
+                </paper-button>
+
+                <p>[[user.displayName]]</p>
+            </form>
+        </div>
+    </template>
+    <script>
+        (function instabeardLoginDefinition(customElements){
+            'use strict'
+            class InstabeardLogin extends ReduxMixin(Polymer.Element) {
+                static get is() { return 'instabeard-login'; }
+
+                static get properties() {
+                    return {
+                        user: {
+                            type: Object,
+                            statePath: 'user',
+                            value: {},
+                            observer: 'userActive'
+                        },
+                        statusKnown: {
+                            type: Object,
+                        }
+                    }
+                }
+
+                static get actions() {
+                    return {
+                        update(user) {
+                            return {
+                                type: 'UPDATE_USER',
+                                user: user
+                            }
+                        }
+                    }
+                }
+
+                login(){
+                    this.$.auth.signInWithPopup()
+                    .then(function(response) { return response })
+                    .catch(function(error) { console.log(error) });
+                }
+
+                userActive(){
+                    this.dispatch('update', this.user);
+                }
+            }
+
+            customElements.define(InstabeardLogin.is, InstabeardLogin)
+        })(window.customElements);
+    </script>
+</dom-module>

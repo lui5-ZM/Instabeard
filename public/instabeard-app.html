@@ -1,0 +1,64 @@
+<link rel="import" href="bower_components/polymer/polymer-element.html">
+<link rel="import" href="bower_components/polymer/lib/elements/dom-if.html">
+<link rel="import" href="bower_components/polymerfire/firebase-app.html">
+<link rel="import" href="redux-mixin/redux-mixin.html">
+
+<link rel="import" href="instabeard-login.html">
+<link rel="import" href="instabeard-signed.html">
+
+
+<dom-module id="instabeard-app">
+    <template>
+        <style>
+            instabeard-login{
+                width: 100%;
+                height: 100%;
+                display: flex;
+            }
+        </style>
+        <firebase-app
+            auth-domain="instabeard-15eab.firebaseapp.com"
+            database-url="https://instabeard-15eab.firebaseio.com/"
+            api-key="AIzaSyBRoPomgGekniRtTJE3VYMV1YvPcmcZ8GY">
+        </firebase-app>
+        <template is="dom-if" if="{{!login_ok}}">
+            <instabeard-login></instabeard-login>
+        </template>
+        <template is="dom-if" if="{{login_ok}}">
+            <instabeard-signed></instabeard-signed>
+        </template>
+
+    </template>
+    <script>
+        (function instabeardAppDefinition(customElements){
+            'use strict'
+            class InstabeardApp extends ReduxMixin(Polymer.Element) {
+                static get is() { return 'instabeard-app'; }
+
+                static get properties() {
+                    return {
+                        user: {
+                            type: Object,
+                            statePath: 'user',
+                            observer: '_change'
+                        },
+                        login_ok: {
+                            type: Boolean
+                        }
+
+                    }
+                }
+
+                _change(){
+                    if (this.user) {
+                        this.login_ok = true;
+                    } else {
+                        this.login_ok = false;
+                    }
+                }
+            }
+
+            customElements.define(InstabeardApp.is, InstabeardApp)
+        })(window.customElements);
+    </script>
+</dom-module>

@@ -1,0 +1,28 @@
+[debug] [2017-08-11T14:53:00.751Z] ----------------------------------------------------------------------
+[debug] [2017-08-11T14:53:00.754Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\usuario 3\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-08-11T14:53:00.754Z] CLI Version:   3.9.2
+[debug] [2017-08-11T14:53:00.754Z] Platform:      win32
+[debug] [2017-08-11T14:53:00.754Z] Node Version:  v6.11.1
+[debug] [2017-08-11T14:53:00.754Z] Time:          Fri Aug 11 2017 09:53:00 GMT-0500 (Hora de verano central (México))
+[debug] [2017-08-11T14:53:00.754Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-08-11T14:53:00.769Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-08-11T14:53:00.769Z] > authorizing via signed-in user
+[debug] [2017-08-11T14:53:00.771Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/instabeard-15eab  
+ Fri Aug 11 2017 09:53:00 GMT-0500 (Hora de verano central (México))
+[debug] [2017-08-11T14:53:01.563Z] <<< HTTP RESPONSE 200
+[debug] [2017-08-11T14:53:01.565Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/instabeard-15eab/tokens  
+ Fri Aug 11 2017 09:53:01 GMT-0500 (Hora de verano central (México))
+[debug] [2017-08-11T14:53:02.378Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\usuario 3\Documents\instabeard'...
+[info] 
+[debug] [2017-08-11T14:53:02.388Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/instabeard-15eab  
+ Fri Aug 11 2017 09:53:02 GMT-0500 (Hora de verano central (México))
+[debug] [2017-08-11T14:53:02.943Z] <<< HTTP RESPONSE 200
+[debug] [2017-08-11T14:53:02.946Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/675606846742/clients/_:getWebAppConfig  
+ Fri Aug 11 2017 09:53:02 GMT-0500 (Hora de verano central (México))
+[debug] [2017-08-11T14:53:03.818Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+

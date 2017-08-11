@@ -1,0 +1,22 @@
+<link rel="import" href="../bower_components/polymer-redux/polymer-redux.html">
+
+
+<script>
+    const initialState = {
+      user: null
+    }
+  
+    function user(state = initialState, action) {
+      switch (action.type) {
+        case 'UPDATE_USER': {
+            return Object.assign({}, state, { user: action.user });
+        }
+        default: {
+          return state;
+        }
+      }
+    }
+  
+    const store = Redux.createStore(user);
+    const ReduxMixin = PolymerRedux(store);
+  </script>
